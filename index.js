@@ -1,8 +1,10 @@
 import express from "express";
 import "dotenv/config";
 import { ai } from "./ai.js";
+import cors from "cors";
 
 const port = process.env.PORT || 4000;
+server.use(cors());
 
 const app = express();
 app.use(express.json());
@@ -17,9 +19,9 @@ app.get("/h", (req, res) => {
       }
     `);
 });
-app.get("/a/:q", async (req, res) => {
+app.post("/a", async (req, res) => {
   try {
-    const q = req.params.q;
+    const q = req.body.q;
     if (!q) {
       return res.status(400).json({ message: "come on" });
     }
