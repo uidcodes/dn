@@ -19,7 +19,7 @@ app.get("/h", (req, res) => {
       }
     `);
 });
-app.post("/a", async (req, res) => {
+app.post("/data", async (req, res) => {
   try {
     const q = req.body.q;
     if (!q) {
