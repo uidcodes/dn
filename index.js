@@ -4,9 +4,9 @@ import { ai } from "./ai.js";
 import cors from "cors";
 
 const port = process.env.PORT || 4000;
-server.use(cors());
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.get("/h", (req, res) => {
   res.send(`
